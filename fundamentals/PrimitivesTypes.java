@@ -1,4 +1,4 @@
-public class Types {
+public class PrimitivesTypes {
     public static void main (String[] args){
         
         // Int 
