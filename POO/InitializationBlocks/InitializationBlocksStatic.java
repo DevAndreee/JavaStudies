@@ -1,97 +1,86 @@
-// InitializationBlocks_Static.java
+```java
+package POO.InitializationBlocks;
 
+======================
+CONCEPT INTRODUCTION
+======================
 
-/*
-   Introduction
-   Static Initialization Blocks (SIB) are blocks of code inside a class
-   declared with the 'static' keyword. They run ONCE when the class is 
-   loaded into memory, before any object is created and before main().
-*/
+Static Initialization Blocks (SIB) are blocks of code inside a class
+declared with the 'static' keyword. They run ONCE when the class is 
+loaded into memory, before any object is created and before main().
 
-/*
-   Key Ideas
-   1. Declared with: static { ... } directly in the class.
-   2. Executed only ONCE, when the class is loaded by the JVM.
-   3. Run before main() and before any static methods or attributes are used.
-   4. Useful for static initializations that require logic (not just a simple assignment).
-*/
+They are particularly useful for static initializations that require 
+logic beyond simple assignments, such as loading configuration files,
+initializing static collections, or setting up database connections.
 
-/*
-   Example 1: Static block runs before main
-*/
-public class StaticExample {
+Syntax:
+static {
+    // initialization code here
+}
+
+public class InitializationBlocksStatic {
+    
+    static String message;
+    static int counter;
+
     static {
-        System.out.println("Static Block: runs when class is loaded");
+        System.out.println("[1] First static block executing");
+        message = "Initialized via static block";
+        counter = 100;
+    }
+
+    static {
+        System.out.println("[2] Second static block executing");
+        counter = counter + 50;
     }
 
     public static void main(String[] args) {
-        System.out.println("Main Method: runs after static block");
+        System.out.println("[3] Main method executing");
+        System.out.println("Message: " + message);
+        System.out.println("Counter: " + counter);
     }
 }
 
-/*
-   Expected Output:
-   Static Block: runs when class is loaded
-   Main Method: runs after static block
-*/
+======================
+EXPLANATION
+======================
 
-/*
-   Example 2: Static block initializing static fields
-*/
-public class DatabaseConnection {
-    static String url;
-    static String user;
+EXPLANATION:
+- Static initialization blocks execute exactly once when the JVM loads the class into memory
+- They run in the order they appear in the source code, from top to bottom
+- All static blocks complete execution before the main method begins
+- They execute before any static methods are called and before any objects are instantiated
+- Multiple static blocks can exist in a single class and will execute sequentially
+- Static blocks have access only to static members of the class
+- They are commonly used for complex initialization logic that cannot be done in a single line
 
-    // Static block to initialize complex logic
-    static {
-        System.out.println("Static Block: initializing static fields");
-        url = "jdbc:mysql://localhost:3306/mydb";
-        user = "admin";
-    }
+The execution sequence when a class is loaded:
+1. Static variable declarations with direct initialization (if any)
+2. Static initialization blocks in declaration order
+3. Then main() or other static methods when called
 
-    public static void connect() {
-        System.out.println("Connecting to " + url + " with user " + user);
-    }
+Expected Output:
+[1] First static block executing
+[2] Second static block executing
+[3] Main method executing
+Message: Initialized via static block
+Counter: 150
 
-    public static void main(String[] args) {
-        DatabaseConnection.connect();
-    }
-}
+QUICK REFERENCE:
+static { }               → static initialization block syntax
+Execution timing         → once when class loads, before main()
+Access scope            → only static members (fields and methods)
+Multiple blocks         → execute in order of appearance
+Use case                → complex static initialization requiring logic
 
-/*
-   Expected Output:
-   Static Block: initializing static fields
-   Connecting to jdbc:mysql://localhost:3306/mydb with user admin
-*/
+COMMON MISTAKES:
+- Assuming static blocks run every time an object is created (they run only once per class loading)
+- Trying to access instance variables inside static blocks (compilation error - static context cannot access instance members)
+- Forgetting that order matters when multiple static blocks exist
+- Placing complex or slow operations in static blocks (delays class loading and program startup)
+- Not understanding that static blocks run even if you never create an object of that class
 
-/*
-   Example 3: Multiple static blocks
-*/
-public class MultiStatic {
-    static {
-        System.out.println("Static Block 1: runs first");
-    }
-
-    static {
-        System.out.println("Static Block 2: runs second");
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Main Method: after all static blocks");
-    }
-}
-
-/*
-   Expected Output:
-   Static Block 1: runs first
-   Static Block 2: runs second
-   Main Method: after all static blocks
-*/
-
-/*
-   Notes
-   - Static blocks run ONCE per class loading, never again.
-   - Order matters: they execute in the sequence they appear in the code.
-   - They are often used for initializing static variables or configurations.
-   - Be careful: complex static initialization may slow down startup.
-*/
+LEARN MORE:
+https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
+(Section: Initializing Fields - Static Initialization Blocks)
+```

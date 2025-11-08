@@ -1,38 +1,30 @@
-/*
-    Constructors Overloading
-
-    What is constructor overloading?
-    - You can have multiple constructors in the same class with the SAME name,
-      but different parameter lists (number or types of parameters).
-    - The compiler chooses which constructor to call based on the arguments passed.
-    - Helps to create objects in different ways without duplicating code.
-
-    Key points:
-    - Overloading is determined by parameter types or number.
-    - Return type is not used in constructor overloading.
-    - Overloading improves flexibility and readability.
-*/
-
+───────────────────────────────────────────────
+📘 TOPIC: Constructors Overloading
+───────────────────────────────────────────────
+Definition:
+Constructor overloading means defining multiple constructors in the same class with the **same name** but **different parameter lists** (number or type of parameters).
+The compiler decides which constructor to use based on the arguments passed during object creation.
+───────────────────────────────────────────────
 class Car {
     String model;
     int year;
     String color;
 
-    // Constructor 1: no parameters
+    // Constructor 1 → No parameters
     public Car() {
         this.model = "Undefined";
         this.year = 0;
         this.color = "Undefined";
     }
 
-    // Constructor 2: model and year
+    // Constructor 2 → Model and year
     public Car(String model, int year) {
         this.model = model;
         this.year = year;
         this.color = "Undefined";
     }
 
-    // Constructor 3: model, year and color
+    // Constructor 3 → Model, year and color
     public Car(String model, int year, String color) {
         this.model = model;
         this.year = year;
@@ -46,24 +38,41 @@ class Car {
 
 public class ConstructorsOverloading {
     public static void main(String[] args) {
-        Car car1 = new Car();                       // Calls constructor 1
-        Car car2 = new Car("Civic", 2020);         // Calls constructor 2
-        Car car3 = new Car("Corolla", 2023, "Red");// Calls constructor 3
+        Car car1 = new Car();                        // Calls constructor 1
+        Car car2 = new Car("Civic", 2020);           // Calls constructor 2
+        Car car3 = new Car("Corolla", 2023, "Red");  // Calls constructor 3
 
         car1.showInfo();
         car2.showInfo();
         car3.showInfo();
     }
 }
-
-/*
-    Output:
-    Model: Undefined, Year: 0, Color: Undefined
-    Model: Civic, Year: 2020, Color: Undefined
-    Model: Corolla, Year: 2023, Color: Red
-
-    Explanation:
-    - Each constructor is called according to the arguments provided.
-    - Overloading avoids duplicating initialization logic.
-    - You can create objects with different levels of detail.
-*/
+───────────────────────────────────────────────
+📖 EXPLANATION
+───────────────────────────────────────────────
+• Overloading allows creating objects with different levels of detail.
+• Each constructor initializes attributes differently, depending on the parameters.
+• The compiler automatically chooses the correct constructor based on arguments.
+───────────────────────────────────────────────
+⚡ QUICK REFERENCE
+───────────────────────────────────────────────
+Overloading = same name + different parameter list.
+Cannot overload by return type only.
+Improves readability and flexibility.
+───────────────────────────────────────────────
+🚫 COMMON MISTAKES
+───────────────────────────────────────────────
+✗ Using same parameter types in all constructors (causes ambiguity).
+✗ Thinking return type affects overloading — it doesn’t.
+✗ Forgetting to initialize attributes consistently across constructors.
+───────────────────────────────────────────────
+💡 QUESTIONS TO REFLECT
+───────────────────────────────────────────────
+• What happens if two constructors have identical parameter types?
+• Can overloaded constructors call each other using `this()`?
+• Why does overloading improve class flexibility?
+───────────────────────────────────────────────
+🔍 LEARN MORE
+───────────────────────────────────────────────
+Oracle Docs → https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html
+───────────────────────────────────────────────

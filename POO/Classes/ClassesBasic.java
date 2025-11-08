@@ -1,36 +1,21 @@
-/*
- Introduction to Classes in Java
 
- 1. What is a class?
- A class is a blueprint (template) used to create objects. 
- It defines *what an object is* (its data/attributes) and *what it can do* (its behavior/methods).
+C L A S S E S — B A S I C  C O N C E P T S
 
- Analogy:
- - Imagine "Car" as an idea (blueprint).
- - Real cars you see (Toyota Corolla, Tesla Model 3) are objects created from this blueprint.
+A class is a **blueprint** (or template) for creating objects.  
+It defines what an object **is** (its attributes) and what it **can do** (its methods).
 
- 2. Syntax
- public class ClassName {
-     // attributes (variables inside the class)
-     // methods (functions inside the class)
- }
+Analogy:
+Think of "Car" as the idea of a car.
+Real cars (like a Tesla or Toyota) are *objects* created from this blueprint.
 
- 3. Important rules:
- - Class names should start with an uppercase letter (Car, Student, BankAccount).
- - One class per file (usually).
- - The file name must match the public class name (Car.java -> class Car).
- - Attributes and methods are declared *inside* the class.
-
- 4. Example (simple)
-*/
 
 class Car {
-    // attributes (characteristics)
+    // Attributes (characteristics)
     String brand;
     String model;
     int year;
 
-    // method (behavior)
+    // Method (behavior)
     void showInfo() {
         System.out.println("Brand: " + brand + ", Model: " + model + ", Year: " + year);
     }
@@ -51,18 +36,29 @@ public class ClassesBasic {
     }
 }
 
-/*
- 5. Key ideas learned:
- - Class = template
- - Object = created instance
- - Attributes = characteristics
- - Methods = actions
 
- 6. Exercises to reflect:
- - Create another object (car2) and assign it different values. 
-   Does it affect car1?
- - What happens if you try to print car1 directly (System.out.println(car1))?
- - Can a class exist without attributes? Without methods?
- - Try removing the "public" from the Classes_Basics class. Why does Java require 
-   the file name to match the public class?
-*/
+EXPLANATION:
+- Class = template that defines structure and behavior.
+- Object = instance created from a class.
+- Attributes = variables inside a class (object data).
+- Methods = actions that objects can perform.
+
+Example:
+  Car (class) → defines brand, model, and year.
+  car1 (object) → a specific car with its own values.
+
+QUICK REFERENCE:
+  • Class → defines structure
+  • Object → instance of a class
+  • Attributes → variables inside a class
+  • Methods → functions inside a class
+  • File name = public class name
+
+COMMON MISTAKES:
+  - Forgetting to use uppercase for class names (should be Car, not car).
+  - Declaring multiple public classes in the same file.
+  - Expecting objects to share the same attribute values automatically.
+  - Printing an object directly (System.out.println(car1)) → shows memory ref, not content.
+
+LEARN MORE:
+  - Java Docs: https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html

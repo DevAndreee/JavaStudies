@@ -1,48 +1,66 @@
-/*
- Access Modifier: private
 
- The "private" modifier restricts access to the attribute, method, or constructor
- only within the class where it is declared.
+A C C E S S   M O D I F I E R :   P R I V A T E
+The "private" modifier restricts access only within the class where it is declared.
 
- Main rules:
- - Private attributes/methods are invisible outside the class.
- - Good for ENCAPSULATION: hiding the internal details of a class.
- - Access is usually done through "getters" and "setters" (public methods).
+It’s the most restrictive access level and is essential for **encapsulation**, 
+ensuring internal class data cannot be accessed or modified directly.
 
- Example: most attributes in real-world classes are private,
- and we expose them through methods to control how they are accessed/modified.
-
- When to use?
- - To protect sensitive data.
- - To ensure that an attribute is not directly manipulated from outside.
-*/
 
 package POO.AccessModifiers;
 
 public class AccessModifiersPrivate {
 
-    // Private attribute → cannot be accessed outside this class
     private String secret = "This is private!";
 
-    // Public getter → controlled access
     public String getSecret() {
         return secret;
     }
 
-    // Public setter → allows controlled modification
     public void setSecret(String secret) {
         this.secret = secret;
     }
 
     public static void main(String[] args) {
-        AccessModifiers_Private obj = new AccessModifiers_Private();
+        AccessModifiersPrivate obj = new AccessModifiersPrivate();
 
-        // System.out.println(obj.secret); // ❌ Compilation error (private access)
+        // System.out.println(obj.secret); // ❌ Not allowed: 'secret' is private
 
-        // Correct way → through getter and setter
         System.out.println("Before: " + obj.getSecret());
-
         obj.setSecret("New controlled value");
         System.out.println("After: " + obj.getSecret());
     }
 }
+
+
+EXPLANATION:
+- `private` makes attributes and methods visible **only** inside their own class.
+- Used for encapsulation: hiding internal implementation from external code.
+- Access to private fields is usually managed via public getters/setters.
+- Promotes data safety and maintainability.
+
+Example:
+  private int age;
+  public int getAge() { return age; }
+  public void setAge(int age) {
+      if (age >= 0) this.age = age;
+  }
+
+QUICK REFERENCE:
+Syntax:
+  private type variableName;
+  private returnType methodName() { ... }
+
+Visibility:
+  - Same class ✅
+  - Same package ❌
+  - Subclasses ❌
+  - External classes ❌
+
+COMMON MISTAKES:
+- Trying to access private fields directly from another class.
+- Forgetting to provide getters/setters for private attributes.
+- Overusing public access instead of keeping data private.
+
+LEARN MORE:
+- Encapsulation in Java: https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+- Getters and Setters Best Practices: https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html

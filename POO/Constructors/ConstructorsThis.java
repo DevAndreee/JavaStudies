@@ -1,28 +1,30 @@
-/*
-    Constructors This()
 
-    Key points:
-    - You can call one constructor from another constructor within the same class using `this()`.
-    - Helps avoid repeating initialization code.
-    - Must be the FIRST statement in the constructor body.
-*/
+───────────────────────────────────────────────
+📘 TOPIC: Constructors and this()
+───────────────────────────────────────────────
+Key points:
+• You can call one constructor from another within the same class using `this()`.  
+• Helps avoid code duplication by centralizing initialization logic.  
+• `this()` must always be the **first statement** inside the constructor body.
+───────────────────────────────────────────────
+
 
 class Car {
     String model;
     int year;
     String color;
 
-    // Constructor 1: no parameters
+    // Constructor 1 → No parameters
     public Car() {
         this("Undefined", 0, "Undefined"); // Calls constructor 3
     }
 
-    // Constructor 2: model and year
+    // Constructor 2 → Model and year
     public Car(String model, int year) {
         this(model, year, "Undefined"); // Calls constructor 3
     }
 
-    // Constructor 3: model, year, color
+    // Constructor 3 → Full initialization
     public Car(String model, int year, String color) {
         this.model = model;
         this.year = year;
@@ -36,9 +38,9 @@ class Car {
 
 public class ConstructorsThis {
     public static void main(String[] args) {
-        Car car1 = new Car();                       // Calls constructor 1 -> this() -> constructor 3
-        Car car2 = new Car("Civic", 2020);         // Calls constructor 2 -> this() -> constructor 3
-        Car car3 = new Car("Corolla", 2023, "Red");// Calls constructor 3 directly
+        Car car1 = new Car();                        // Calls constructor 1 → this() → constructor 3
+        Car car2 = new Car("Civic", 2020);           // Calls constructor 2 → this() → constructor 3
+        Car car3 = new Car("Corolla", 2023, "Red");  // Calls constructor 3 directly
 
         car1.showInfo();
         car2.showInfo();
@@ -46,14 +48,36 @@ public class ConstructorsThis {
     }
 }
 
-/*
-    Output:
-    Model: Undefined, Year: 0, Color: Undefined
-    Model: Civic, Year: 2020, Color: Undefined
-    Model: Corolla, Year: 2023, Color: Red
 
-    Explanation:
-    - The this() keyword allows one constructor to call another.
-    - Reduces code duplication and centralizes initialization logic.
-    - Always must be the first line inside the constructor calling another constructor.
-*/
+───────────────────────────────────────────────
+📖 EXPLANATION
+───────────────────────────────────────────────
+• The `this()` call allows one constructor to reuse another.  
+• It helps avoid repeating code when several constructors share logic.  
+• When using `this()`, it must always appear **as the first statement**.  
+───────────────────────────────────────────────
+
+⚡ QUICK REFERENCE
+───────────────────────────────────────────────
+this()  → Calls another constructor in the same class.  
+this.var → Refers to the current object’s attribute.  
+───────────────────────────────────────────────
+
+🚫 COMMON MISTAKES
+───────────────────────────────────────────────
+✗ Writing code before `this()` in a constructor (causes compilation error).  
+✗ Creating a recursive call: a constructor that calls itself.  
+✗ Forgetting to initialize fields when skipping `this()`.  
+───────────────────────────────────────────────
+
+💡 QUESTIONS TO REFLECT
+───────────────────────────────────────────────
+• What happens if you remove `this()` from the first constructor?  
+• Can `super()` (calling parent constructor) and `this()` appear together?  
+• Why must `this()` always come first inside a constructor?  
+───────────────────────────────────────────────
+
+🔍 LEARN MORE
+───────────────────────────────────────────────
+Oracle Docs → https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html  
+───────────────────────────────────────────────

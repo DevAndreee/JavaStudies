@@ -1,27 +1,24 @@
-/*
- Classes – Methods
 
- 1. What are methods in a class?
- - Methods are blocks of code inside a class that define the *behavior* of the objects.
- - While attributes describe "what the object is" (its state), 
-   methods describe "what the object does" (its actions).
+───────────────────────────────────────────────
+📘 TOPIC: Classes – Methods
+───────────────────────────────────────────────
+Topics covered in this file:
+1. What are methods in a class?
+2. Methods with and without parameters
+3. Methods that return values
+4. Using attributes inside methods
+───────────────────────────────────────────────
 
- Analogy:
- - Class: Car
-   Attributes: brand, model, year
-   Methods: startEngine(), accelerate(), brake()
+Methods are blocks of code inside a class that define the *behavior* of objects.  
+Attributes describe “what the object is” (its state).  
+Methods describe “what the object does” (its actions).
 
- 2. Syntax:
- class ClassName {
-     // attribute
-     int year;
+Analogy:
+Class → Car  
+Attributes → brand, model, year  
+Methods → startEngine(), accelerate(), brake()
+───────────────────────────────────────────────
 
-     // method
-     void methodName() {
-         // action to be performed
-     }
- }
-*/
 
 class Car {
     // Attributes
@@ -60,7 +57,6 @@ public class ClassesMethods {
         car1.accelerate(20);
 
         System.out.println("Final speed of " + car1.brand + ": " + car1.getSpeed() + " km/h");
-
         System.out.println("------");
 
         Car car2 = new Car();
@@ -72,28 +68,43 @@ public class ClassesMethods {
     }
 }
 
-/*
- 3. Key takeaways:
- - Methods = define what an object can do.
- - They can:
-   • use attributes (startEngine uses brand),
-   • take parameters (accelerate takes increment),
-   • return values (getSpeed returns current speed).
- - Methods make objects "alive", not just static data.
 
- 4. Questions to reflect:
- - What happens if you call accelerate() on a car before starting the engine? 
-   Should we add validation?
- - What if I never set the brand? What would startEngine() print?
- - Why does getSpeed() return an int instead of void?
- - Can a method return an object instead of a primitive?
+───────────────────────────────────────────────
+📖 EXPLANATION
+───────────────────────────────────────────────
+- Methods define what an object can do.
+- They can:
+  • Use attributes → startEngine() uses brand.
+  • Take parameters → accelerate(int increment).
+  • Return values → getSpeed() returns current speed.
+- Methods make objects *active* rather than static data.
 
- 5. Challenge exercise:
- Create a class "BankAccount" with attributes:
- - accountNumber, balance
- And methods:
- - deposit(double amount)
- - withdraw(double amount)
- - getBalance()
- Then create two accounts, deposit and withdraw money, and print the balances.
-*/
+───────────────────────────────────────────────
+⚡ QUICK REFERENCE
+───────────────────────────────────────────────
+Method Declaration → returnType methodName(parameters) { ... }
+Call Syntax → object.methodName(args);
+Return → Use "return value;" inside the method.
+Void → Means “no return value”.
+───────────────────────────────────────────────
+
+🚫 COMMON MISTAKES
+───────────────────────────────────────────────
+✗ Forgetting to initialize attributes before using them.
+✗ Returning a value in a void method.
+✗ Declaring parameters but never using them.
+───────────────────────────────────────────────
+
+💡 QUESTIONS TO REFLECT
+───────────────────────────────────────────────
+• What happens if you call accelerate() before startEngine()?  
+• What if you never set the brand?  
+• Why does getSpeed() return an int instead of void?  
+• Can a method return an object instead of a primitive?
+───────────────────────────────────────────────
+
+
+🔍 LEARN MORE
+───────────────────────────────────────────────
+Oracle Docs → https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
+───────────────────────────────────────────────

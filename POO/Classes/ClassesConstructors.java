@@ -1,24 +1,23 @@
-/*
- Classes – Constructors
 
- 1. What is a constructor?
- - A constructor is a special method used to initialize objects.
- - It has the same name as the class and NO return type.
- - It's automatically called when using "new".
+───────────────────────────────────────────────
+📘 TOPIC: Classes – Constructors
+───────────────────────────────────────────────
+Topics covered in this file:
+1. What a constructor is
+2. Default vs parameterized constructors
+3. Using "this" to reference class attributes
+4. Constructor overloading
+───────────────────────────────────────────────
 
- Analogy:
- - Class: Car
- - Constructor: the "factory setup" that defines how the car is created 
-   (e.g., setting the brand, year, initial speed).
+A constructor is a special method used to initialize objects.  
+It has the same name as the class and **no return type**.  
+It runs automatically when an object is created with **new**.
 
- 2. Syntax:
- class ClassName {
-     // constructor
-     ClassName(parameters) {
-         // initialization code
-     }
- }
-*/
+Analogy:
+Class → Car  
+Constructor → Factory setup that defines how each car is created.
+───────────────────────────────────────────────
+
 
 class Car {
     String brand;
@@ -72,23 +71,42 @@ public class ClassesConstructors {
     }
 }
 
-/*
- 3. Key takeaways:
- - Constructors set the initial state of an object.
- - You can overload constructors (several versions with different parameters).
- - "this" is used to differentiate between class attributes and parameters.
- - If no constructor is created, Java automatically provides a default one.
 
- 4. Questions to reflect:
- - What happens if I don’t declare any constructor?
- - Why is "this" important in parameterized constructors?
- - Can I call one constructor from another? (Yes, using "this()")
+───────────────────────────────────────────────
+📖 EXPLANATION
+───────────────────────────────────────────────
+• Constructors set the initial state of an object.  
+• You can overload constructors → multiple versions with different parameters.  
+• "this" is used to distinguish between class attributes and parameters.  
+• If no constructor is written, Java provides one by default.
+───────────────────────────────────────────────
 
- 5. Challenge exercise:
- Create a class "Student" with attributes:
- - name, age, grade
- Add two constructors:
- - One default (sets generic values)
- - One parameterized (receives values for all attributes)
- Then create students using both constructors and print their info.
-*/
+⚡ QUICK REFERENCE
+───────────────────────────────────────────────
+Syntax:
+ClassName(parameters) { ... }
+
+Rules:
+• Same name as the class  
+• No return type (not even void)  
+• Called automatically with new  
+───────────────────────────────────────────────
+
+🚫 COMMON MISTAKES
+───────────────────────────────────────────────
+✗ Writing a return type in a constructor  
+✗ Forgetting to use "this" when parameter names match attributes  
+✗ Expecting default constructor when another one is defined
+───────────────────────────────────────────────
+
+💡 QUESTIONS TO REFLECT
+───────────────────────────────────────────────
+• What happens if no constructor is declared?  
+• Why is "this" important in parameterized constructors?  
+• Can one constructor call another? (Yes → use this())
+───────────────────────────────────────────────
+
+🔍 LEARN MORE
+───────────────────────────────────────────────
+Oracle Docs → https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html
+───────────────────────────────────────────────

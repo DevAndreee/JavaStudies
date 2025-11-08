@@ -1,33 +1,27 @@
-/*
- Access Modifiers Basics
 
- In Java, access modifiers control the visibility and accessibility of classes, methods, and attributes.
- They are a fundamental part of encapsulation, one of the main pillars of OOP.
+A C C E S S   M O D I F I E R S   B A S I C S
 
- Main levels of access:
+In Java, access modifiers control the visibility and accessibility of classes,
+methods, and attributes. They are a key part of **encapsulation**, one of the main
+pillars of Object-Oriented Programming (OOP).
 
- 1. public
-    - Accessible from anywhere in the project (and from other projects if imported).
-    - Example: Classes in the Java API (e.g., java.util.ArrayList).
+Main access levels:
 
- 2. private
-    - Accessible only inside the same class.
-    - Used to protect internal details and maintain encapsulation.
+1. public
+   - Accessible from anywhere in the project (and from external packages if imported).
+   - Example: Classes in the Java API, like java.util.ArrayList.
 
- 3. default (also called package-private)
-    - If no modifier is written, the member is accessible only within the same package.
-    - Example: A class in the same folder (package) can access it.
+2. private
+   - Accessible only inside the same class.
+   - Used to protect internal data and enforce encapsulation.
 
- 4. protected
-    - Accessible inside the same package (like default).
-    - Additionally, it is accessible from subclasses, even if they are in different packages.
+3. default (package-private)
+   - If no modifier is written, access is restricted to the same package.
+   - Example: Classes in the same folder (package) can access it.
 
- Why are they important?
- - They define how "open" or "closed" a class design is.
- - They protect code from unwanted use.
- - They allow building APIs safely.
-
- Example overview:
+4. protected
+   - Accessible inside the same package (like default),
+     and also from subclasses in different packages.
 */
 
 package POO.AccessModifiers;
@@ -51,11 +45,33 @@ public class AccessModifiersBasic {
         ExampleClass ex = new ExampleClass();
         ex.showVars();
 
-        // What can we access directly here?
-        System.out.println(ex.publicVar);   // ✅ Works
-        System.out.println(ex.privateVar);   // ❌ Error: private
-        System.out.println(ex.defaultVar);  // ✅ Works: same package
-        System.out.println(ex.protectedVar);// ✅ Works: same package
-        
+        // Direct access examples:
+        System.out.println(ex.publicVar);    // ✅ Accessible (public)
+        // System.out.println(ex.privateVar); // ❌ Error: private (only inside ExampleClass)
+        System.out.println(ex.defaultVar);   // ✅ Same package
+        System.out.println(ex.protectedVar); // ✅ Same package (also visible to subclasses)
     }
 }
+
+
+EXPLANATION:
+- Access modifiers define how other parts of the program can interact with a class.
+- Choosing the correct modifier enforces **encapsulation** and prevents unintended dependencies.
+- "private" hides internal details; "public" exposes APIs; "protected" allows inheritance flexibility.
+
+QUICK REFERENCE (simplified view):
+
+  public      → all classes, all packages
+  protected   → same package + subclasses
+  default     → only same package
+  private     → only same class
+
+COMMON MISTAKES:
+- Thinking “protected” works like “public” for subclasses — it doesn’t apply to unrelated classes.
+- Forgetting that “default” access is package-limited.
+- Making everything “public”, breaking encapsulation.
+
+LEARN MORE:
+- Official docs: https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html
+- Effective Java (Joshua Bloch): Item 15 – "Minimize the accessibility of classes and members"
+*/

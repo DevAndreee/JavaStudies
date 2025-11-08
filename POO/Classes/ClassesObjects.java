@@ -1,12 +1,16 @@
-/*
- Topics covered in this file:
- 1. What an object is
- 2. How to instantiate an object using "new"
- 3. Accessing attributes of an object
- 4. Calling methods of an object
- 5. Multiple objects from the same class
- 6. Objects have independent states
-*/
+
+───────────────────────────────────────────────
+📘 TOPIC: Classes and Objects
+───────────────────────────────────────────────
+Topics covered in this file:
+1. What an object is
+2. How to instantiate an object using "new"
+3. Accessing attributes of an object
+4. Calling methods of an object
+5. Multiple objects from the same class
+6. Objects have independent states
+───────────────────────────────────────────────
+
 
 class Car {
     String brand;
@@ -49,11 +53,35 @@ public class ClassesObjects {
     }
 }
 
-/*
- Key takeaways:
- - An object is an instance of a class.
- - You can create multiple objects from the same class; each has its own state.
- - Access attributes with object.attribute
- - Call methods with object.method()
- - Modifying one object’s attributes does NOT affect another object.
-*/
+
+───────────────────────────────────────────────
+📖 EXPLANATION
+───────────────────────────────────────────────
+- An object is an instance of a class.
+- Objects are created using the keyword "new".
+- You can access attributes using the dot syntax (object.attribute).
+- Methods are also accessed using the dot syntax (object.method()).
+- Each object created from a class has its own copy of the attributes.
+- Changing one object’s state does not affect others created from the same class.
+
+───────────────────────────────────────────────
+⚡ QUICK REFERENCE
+───────────────────────────────────────────────
+Class → A blueprint describing attributes and behaviors.
+Object → A real instance created from a class.
+Instantiation → Creating an object with "new ClassName()".
+Accessing → object.attribute / object.method().
+Independent States → Each object stores its own data.
+
+───────────────────────────────────────────────
+🚫 COMMON MISTAKES
+───────────────────────────────────────────────
+✗ Forgetting to instantiate before accessing attributes.
+✗ Assuming all objects share the same attribute values.
+✗ Forgetting that "speed" or other attributes reset to default (0/null) for each new object.
+
+───────────────────────────────────────────────
+🔍 LEARN MORE
+───────────────────────────────────────────────
+- Oracle Docs: https://docs.oracle.com/javase/tutorial/java/javaOO/objects.html
+───────────────────────────────────────────────

@@ -1,3 +1,7 @@
+The if–else if–else structure is used to evaluate multiple conditions in sequence.
+Only the first true condition executes its block, and the rest are skipped.
+The final "else" acts as a fallback when none of the conditions are true.
+
 public class IfElseIfStatement {
     public static void main(String[] args) {
 
@@ -13,12 +17,31 @@ public class IfElseIfStatement {
         } else {
             grade = "D";
         }
-        System.out.println(grade); // grade == B
+
+        System.out.println("Grade: " + grade); // Output: Grade: B
     }
 }
 
-/*
-IF...ELSE IF...ELSE → used when there are multiple conditions to check in sequence.
-- Only the first true condition is executed.
-- The `else` at the end acts as a fallback if none are true.
-*/
+EXPLANATION
+- "if" checks the first condition.
+- "else if" checks additional conditions if the previous ones are false.
+- "else" runs only if none of the above conditions are true.
+- Execution stops as soon as one condition is met.
+
+QUICK REFERENCE
+Syntax:
+if (condition1) {
+    // code to execute if condition1 is true
+} else if (condition2) {
+    // code to execute if condition2 is true
+} else {
+    // code to execute if none are true
+}
+
+COMMON MISTAKES
+- Using multiple separate "if" statements instead of chaining with "else if".
+- Forgetting that only the first true condition executes.
+- Misplacing braces {} or indentation, causing logical errors.
+
+LEARN MORE
+https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
